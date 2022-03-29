@@ -21,3 +21,17 @@ variable "application_environment" {
   type        = string
   default     = "dev"
 }
+variable "vpc_cidr" {
+  description = "CIDR range for VPC. Usually a /16 to give adequate headroom for containers and lambdas."
+  type        = string
+}
+
+variable "public_subnets" {
+  description = "CIDR range for public subnet"
+  type        = string
+}
+variable "azs" {
+  description = "Availability Zones. Public+Private subnets will be generated for each availability zone."
+  type        = list(string)
+  default     = ["a", "b", "c"]
+}
